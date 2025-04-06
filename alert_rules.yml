@@ -1,0 +1,9 @@
+groups:
+  - name: node_disk_usage
+    rules:
+      - alert: node_disk_usage_rule_alert
+        expr: node_disk_usage_rule > 80
+        for: 1m
+        annotations:
+          summary: "disk usage in {{ $labels.instance }}"
+          description: "disk usage is {{ $value }}"

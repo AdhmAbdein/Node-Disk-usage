@@ -1,0 +1,10 @@
+
+groups:
+  - name: node_disk_usage
+    rules:
+      - record: node_disk_usage_rule
+        expr: ( node_filesystem_size_bytes{mountpoint="/"} - node_filesystem_free_bytes{mountpoint="/"} ) / node_filesystem_size_bytes * 100
+        labels:
+          node1: disk_usage
+
+
